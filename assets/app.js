@@ -33,6 +33,29 @@ function fieldHtml(label, value) {
     </div>`;
 }
 
+const IMAGE_EXTENSIONS = ["jpg", "jpeg", "png", "JPG", "JPEG", "PNG"];
+
+function fotoImgHtml(item, cssClass) {
+  const base = `${REPO_BASE}/images/${item.kode_tib}`;
+  return `<img class="${cssClass}" src="${base}.${IMAGE_EXTENSIONS[0]}"
+    data-base="${base}" data-idx="0" alt="Foto ${escapeHtml(item.nama_umum)}"
+    onerror="tryNextImageExt(this)">`;
+}
+
+window.tryNextImageExt = function (img) {
+  const idx = parseInt(img.dataset.idx, 10) + 1;
+  if (idx < IMAGE_EXTENSIONS.length) {
+    img.dataset.idx = idx;
+    img.src = `${img.dataset.base}.${IMAGE_EXTENSIONS[idx]}`;
+  } else {
+    const isThumb = img.classList.contains("thumb");
+    const placeholder = document.createElement("div");
+    placeholder.className = isThumb ? "thumb-placeholder" : "foto-placeholder";
+    if (!isThumb) placeholder.textContent = "Foto belum tersedia";
+    img.replaceWith(placeholder);
+  }
+};
+
 function escapeHtml(str) {
   const div = document.createElement("div");
   div.textContent = str;
@@ -51,9 +74,7 @@ function ukuranText(u) {
 }
 
 function renderDetail(item, opts = {}) {
-  const fotoHtml = `
-    <img class="foto" src="${REPO_BASE}/${item.foto}" alt="Foto ${escapeHtml(item.nama_umum)}"
-      onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'foto-placeholder',textContent:'Foto belum tersedia'}))">`;
+  const fotoHtml = fotoImgHtml(item, "foto");
 
   const namaDaerah = item.nama_daerah && item.nama_daerah !== item.nama_umum
     ? `<p class="nama-daerah">${escapeHtml(item.nama_daerah)}</p>` : "";
@@ -101,8 +122,7 @@ function renderList(koleksiList, kodeQr) {
     <div class="item-row" tabindex="0" role="button"
       onclick="renderDetail(window.__currentItems[${i}], {showBack:true})"
       onkeypress="if(event.key==='Enter')this.click()">
-      <img class="thumb" src="${REPO_BASE}/${item.foto}" alt=""
-        onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'thumb-placeholder'}))">
+      ${fotoImgHtml(item, "thumb")}
       <div class="info">
         <p class="nama">${escapeHtml(item.nama_umum)}</p>
         <p class="jenis">${escapeHtml(item.jenis_koleksi || "")}${item.sub_jenis_koleksi ? " \u00b7 " + escapeHtml(item.sub_jenis_koleksi) : ""}</p>
