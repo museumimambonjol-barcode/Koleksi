@@ -1,0 +1,318 @@
+/* ============================================================
+   Museum Tuanku Imam Bonjol — Digitalisasi Koleksi
+   Token: tag koleksi museum (kartu label artefak)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --ink: #1B1410;         /* nyaris hitam, coklat tua seperti kayu tua */
+  --maroon: #6B1E23;      /* merah songket tua */
+  --maroon-deep: #4A1418;
+  --brass: #B8863B;       /* kuningan/emas tua, benang songket */
+  --brass-light: #D9B571;
+  --parchment: #EDE3CE;   /* kertas tua */
+  --parchment-light: #F5EFE0;
+  --iron: #4A4A48;        /* abu besi, teks sekunder */
+  --ink-soft: #2B2420;    /* teks utama di atas kertas */
+  --line: rgba(27, 20, 16, 0.14);
+  --radius: 3px;
+  --shadow-card: 0 1px 0 rgba(27,20,16,0.06), 0 8px 24px -12px rgba(27,20,16,0.35);
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--ink-soft);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* ---------- Header band ---------- */
+.masthead {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 22px 20px 26px;
+  text-align: center;
+  border-bottom: 3px solid var(--brass);
+  position: relative;
+}
+.masthead::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, var(--maroon) 0 10px, transparent 10px 20px);
+  opacity: 0.7;
+}
+.masthead .eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brass-light);
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+.masthead h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: clamp(20px, 5.5vw, 28px);
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Page body ---------- */
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 20px 16px 56px;
+}
+
+/* ---------- Artifact tag card (signature element) ---------- */
+.tag {
+  background: var(--parchment-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  margin: 28px 0 20px;
+  padding: 30px 22px 26px;
+  border: 1px solid var(--line);
+}
+/* grommet + string, evoking a real specimen tag tied to a display case */
+.tag::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 28px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--parchment-light);
+  border: 3px solid var(--brass);
+  box-shadow: 0 2px 3px rgba(27,20,16,0.25);
+}
+.tag::after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 36px;
+  width: 3px;
+  height: 20px;
+  background: var(--iron);
+  transform: rotate(8deg);
+  border-radius: 2px;
+}
+.tag .kode {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--maroon);
+  background: rgba(107,30,35,0.08);
+  border: 1px solid rgba(107,30,35,0.25);
+  padding: 3px 9px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+.tag .foto {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  margin-bottom: 16px;
+  background: var(--parchment);
+  display: block;
+}
+.tag .foto-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius);
+  border: 1px dashed var(--line);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--iron);
+  font-size: 13px;
+  background: repeating-linear-gradient(45deg, rgba(27,20,16,0.02) 0 10px, rgba(27,20,16,0.045) 10px 20px);
+}
+.tag h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 24px;
+  margin: 0 0 2px;
+  color: var(--ink);
+}
+.tag .nama-daerah {
+  font-style: italic;
+  color: var(--iron);
+  font-size: 14.5px;
+  margin: 0 0 16px;
+}
+.tag hr {
+  border: none;
+  border-top: 1px solid var(--brass);
+  opacity: 0.5;
+  margin: 16px 0;
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 16px;
+  margin-bottom: 4px;
+}
+.meta-grid .full { grid-column: 1 / -1; }
+.meta-item .label {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--maroon);
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+.meta-item .value {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.meta-item .value.kosong {
+  color: var(--iron);
+  font-style: italic;
+}
+
+.deskripsi {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.deskripsi .label {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--maroon);
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+.deskripsi p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0;
+  white-space: pre-line;
+}
+
+.pencatat {
+  margin-top: 18px;
+  font-size: 12px;
+  color: var(--iron);
+  font-style: italic;
+}
+
+/* ---------- List view (box with several items) ---------- */
+.list-intro {
+  color: var(--parchment);
+  text-align: center;
+  font-size: 14px;
+  padding: 18px 16px 4px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.list-intro strong { color: var(--brass-light); }
+
+.item-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--parchment-light);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.item-row:hover, .item-row:focus-visible {
+  box-shadow: var(--shadow-card);
+  transform: translateY(-1px);
+}
+.item-row:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.item-row .thumb {
+  width: 52px; height: 52px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  flex-shrink: 0;
+  background: var(--parchment);
+  border: 1px solid var(--line);
+}
+.item-row .thumb-placeholder {
+  width: 52px; height: 52px;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+  background: repeating-linear-gradient(45deg, rgba(27,20,16,0.03) 0 8px, rgba(27,20,16,0.06) 8px 16px);
+  border: 1px solid var(--line);
+}
+.item-row .info { flex: 1; min-width: 0; }
+.item-row .info .nama {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--ink);
+  margin: 0 0 2px;
+}
+.item-row .info .jenis {
+  font-size: 12.5px;
+  color: var(--iron);
+  margin: 0;
+}
+.item-row .arrow { color: var(--brass); font-size: 18px; flex-shrink: 0; }
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--brass-light);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 4px auto 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px 0;
+}
+.back-link:hover { color: var(--parchment); }
+
+/* ---------- States ---------- */
+.state-box {
+  text-align: center;
+  color: var(--parchment);
+  padding: 60px 20px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.state-box h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  color: var(--brass-light);
+  margin: 0 0 8px;
+}
+.state-box p { font-size: 14px; color: rgba(237,227,206,0.75); margin: 0; }
+
+footer.site-footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 11.5px;
+  color: rgba(237,227,206,0.45);
+}
