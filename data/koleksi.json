@@ -1987,16 +1987,16 @@
     "pencatat": "Ego Vinda A.P.Y. Arianto, S.Pd.",
     "foto": "images/TIB05054.jpg"
   },
-  "TIB05028": {
-    "kode_tib": "TIB05028",
+  "TIB07001": {
+    "kode_tib": "TIB07001",
     "kode_qr": "QR004",
     "nomor_box": "4",
     "nama_umum": "Manuscript",
     "nama_daerah": "Naskah Tuanku Imam Bonjol",
-    "no_registrasi": "",
-    "no_inventaris_b": "05.28",
+    "no_registrasi": "487",
+    "no_inventaris_b": "07.01",
     "no_inventaris_l": "",
-    "jenis_koleksi": "Historika",
+    "jenis_koleksi": "Filologika",
     "sub_jenis_koleksi": "Memoar dari Tuanku Imam Bonjol",
     "bahan": "Kertas",
     "cara_didapat": "Dari rumahnya Ali Usman Datuak Buruak",
@@ -2011,9 +2011,37 @@
       "tebal": "",
       "diameter": ""
     },
-    "deskripsi": "",
+    "deskripsi": "Naskah ini merupakan manuskrip klasik berbahasa Melayu yang mengisahkan riwayat perjuangan Tuanku Imam Bonjol, yang bernama asli Peto Syarif, dalam perkembangan Perang Paderi di Minangkabau. Naskah memuat latar belakang konflik, kondisi sosial dan politik Minangkabau, serta peran tokoh-tokoh seperti Datuak Bandaro, Haji Miskin, Haji Piobang, Haji Sumanik, dan Tuanku Nan Renceh. Selain itu, diceritakan perjalanan Peto Syarif hingga memperoleh gelar Tuanku Mudo dan Tuanku Imam, berbagai peperangan di wilayah Minangkabau dan sekitarnya, serta pembangunan Benteng Bukit Tajadi sebagai pusat pertahanan. Naskah juga mencatat perjalanan para utusan ke Mekah untuk mengkaji hubungan antara ajaran Islam dan adat Minangkabau. Pada akhirnya, manuskrip menegaskan perkembangan dan penyebaran prinsip Adat Basandi Syarak, Syarak Basandi Kitabullah dari Bonjol ke berbagai wilayah Minangkabau.",
     "pencatat": "",
-    "foto": "images/TIB05028.jpg"
+    "foto": "images/TIB07001.jpg"
+  },
+  "TIB10001": {
+    "kode_tib": "TIB10001",
+    "kode_qr": "QR006",
+    "nomor_box": "6",
+    "nama_umum": "Teropong",
+    "nama_daerah": "Teropong",
+    "no_registrasi": "42",
+    "no_inventaris_b": "10.1",
+    "no_inventaris_l": "",
+    "jenis_koleksi": "Teknologika",
+    "sub_jenis_koleksi": "Alat",
+    "bahan": "Logam dan Kulit",
+    "cara_didapat": "",
+    "tanggal_didapat": "",
+    "kondisi_benda": "Terawat",
+    "tempat_asal_didapat": "Museum Tuanku Imam Bonjol",
+    "tempat_asal_dibuat": "",
+    "ukuran": {
+      "panjang": "",
+      "lebar": "",
+      "tinggi": "",
+      "tebal": "",
+      "diameter": ""
+    },
+    "deskripsi": "Sejenis peralatan yang digunakan untuk melihat lawat dalam jarak jauh dan dekat pada masa Perang Padri. Teropong atau binokular ini merupakan alat optik yang digunakan untuk melihat objek dari jarak jauh. Teropong memiliki dua buah lensa utama (obyektif) dan dua lensa okuler yang dipasangkan secara sejajar sehingga dapat digunakan oleh kedua mata sekaligus, memberikan efek penglihatan stereoskopis (tiga dimensi). Bodi teropong terbuat dari material logam berwarna hitam, dengan bagian lensa berbahan logam berwarna perak pada sisi luar. Teropong ini dilengkapi tali pengikat berbahan kulit berwarna hitam untuk memudahkan penggunaannya saat dibawa di leher atau bahu. Bagian tengah teropong dilengkapi engsel penghubung yang dapat disesuaikan lebar bukaan sesuai jarak antar mata pengguna. Melihat bentuk dan modelnya, kemungkinan teropong ini sering digunakan untuk keperluan militer, kepanduan, atau observasi lapangan. Teropong ini didesain portabel dan ringan, memudahkan pengguna dalam aktivitas di luar ruangan.",
+    "pencatat": "Ego Vinda A.P.Y. Arianto, S.Pd.",
+    "foto": "images/TIB10001.jpg"
   },
   "TIB09008": {
     "kode_tib": "TIB09008",
