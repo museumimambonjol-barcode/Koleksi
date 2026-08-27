@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Koleksi - Museum Tuanku Imam Bonjol</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: #f5f0e6;
+    color: #3a2e1f;
+  }
+  header {
+    background: #6b4b2a;
+    color: #fff;
+    text-align: center;
+    padding: 18px 16px;
+  }
+  header h1 { margin: 0; font-size: 1.2rem; }
+  header p { margin: 4px 0 0; font-size: 0.8rem; opacity: 0.85; }
+  .content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+  }
+  .card {
+    background: #fffdf8;
+    border: 1px solid #d9c7a3;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .foto-wrap {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 16px;
+    background: #eee2c8;
+  }
+  .foto-wrap img {
+    height: 220px;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+  .no-photo {
+    padding: 40px 16px;
+    text-align: center;
+    color: #b8a06a;
+    background: #eee2c8;
+  }
+  .card-body { padding: 18px 20px; }
+  .card-body h2 {
+    margin: 0 0 4px;
+    color: #6b4b2a;
+    font-size: 1.4rem;
+  }
+  .card-body .sub {
+    font-style: italic;
+    color: #8a7355;
+    margin-bottom: 4px;
+  }
+  .kode-badge {
+    display: inline-block;
+    background: #b8935a;
+    color: #fff;
+    font-size: 0.75rem;
+    padding: 2px 10px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+  }
+  .meta-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    margin-bottom: 16px;
+  }
+  .meta-table td {
+    padding: 5px 6px;
+    vertical-align: top;
+    border-bottom: 1px dashed #e5d8ba;
+  }
+  .meta-table td.label {
+    color: #8a7355;
+    white-space: nowrap;
+    width: 42%;
+  }
+  .deskripsi {
+    line-height: 1.6;
+    font-size: 0.95rem;
+    border-top: 1px solid #e5d8ba;
+    padding-top: 14px;
+  }
+  .error-box {
+    text-align: center;
+    padding: 60px 20px;
+    color: #a33;
+  }
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: #8a7355;
+    font-size: 0.8rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Museum Tuanku Imam Bonjol</h1>
+  <p>Informasi Koleksi</p>
+</header>
+
+<div class="content" id="app">
+  <p style="text-align:center;">Memuat data koleksi...</p>
+</div>
+
+<footer>Museum Tuanku Imam Bonjol</footer>
+
+<script>
+function getParam(name) {
+  const params = new URLSearchParams(window.location.search);
+  return params.get(name);
+}
+
+const kode = getParam('kode');
+const app = document.getElementById('app');
+
+if (!kode) {
+  app.innerHTML = '<div class="error-box"><p>Kode koleksi tidak ditemukan di URL.</p><p>Contoh URL yang benar: koleksi.html?kode=TIB08019</p></div>';
+} else {
+  fetch('data/data_koleksi.json')
+    .then(res => res.json())
+    .then(data => {
+      const item = data[kode.toUpperCase()];
+      if (!item) {
+        app.innerHTML = `<div class="error-box"><p>Koleksi dengan kode <strong>${kode}</strong> tidak ditemukan.</p></div>`;
+        return;
+      }
+
+      let fotoHtml = '<div class="no-photo">Foto belum tersedia</div>';
+      // coba cari foto dengan pola nama file kode_tib.jpg/.jpeg/.png, atau _1/_2 dst
+      const kemungkinanFoto = [
+        `foto/${item.kode_tib}.jpg`,
+        `foto/${item.kode_tib}.jpeg`,
+        `foto/${item.kode_tib}.png`,
+      ];
+
+      const namaDaerah = item.nama_daerah ? `<div class="sub">${item.nama_daerah}</div>` : '';
+
+      app.innerHTML = `
+        <div class="card">
+          <div class="foto-wrap" id="foto-wrap">
+            <div class="no-photo">Memuat foto...</div>
+          </div>
+          <div class="card-body">
+            <div class="kode-badge">${item.kode_tib}</div>
+            <h2>${item.nama_umum || '(Nama belum tercatat)'}</h2>
+            ${namaDaerah}
+            <table class="meta-table">
+              <tr><td class="label">No. Registrasi</td><td>${item.no_reg || '-'}</td></tr>
+              <tr><td class="label">No. Inv. B / No. Inv. L</td><td>${item.no_invb || '-'} / ${item.no_invl || '-'}</td></tr>
+              <tr><td class="label">Jenis Koleksi</td><td>${item.jenis_koleksi || '-'}</td></tr>
+              <tr><td class="label">Sub Jenis Koleksi</td><td>${item.sub_jenis_koleksi || '-'}</td></tr>
+              <tr><td class="label">Bahan</td><td>${item.bahan || '-'}</td></tr>
+              <tr><td class="label">Ukuran</td><td>${item.ukuran || '-'}</td></tr>
+              <tr><td class="label">Kondisi Benda</td><td>${item.kondisi_benda || '-'}</td></tr>
+              <tr><td class="label">Tempat Asal Didapat</td><td>${item.tempat_asal_didapat || '-'}</td></tr>
+              <tr><td class="label">Tempat Asal Dibuat</td><td>${item.tempat_asal_dibuat || '-'}</td></tr>
+              <tr><td class="label">Cara Didapat</td><td>${item.cara_didapat || '-'}</td></tr>
+              <tr><td class="label">Tanggal Didapat</td><td>${item.tanggal_didapat || '-'}</td></tr>
+            </table>
+            <div class="deskripsi">${item.deskripsi || ''}</div>
+          </div>
+        </div>
+      `;
+
+      // cek foto mana yang benar-benar ada (coba load satu-satu)
+      const fotoWrap = document.getElementById('foto-wrap');
+      let loadedAny = false;
+      let checked = 0;
+      kemungkinanFoto.forEach(src => {
+        const testImg = new Image();
+        testImg.onload = () => {
+          if (!loadedAny) { fotoWrap.innerHTML = ''; loadedAny = true; }
+          const im = document.createElement('img');
+          im.src = src;
+          fotoWrap.appendChild(im);
+        };
+        testImg.onerror = () => {
+          checked++;
+          if (checked === kemungkinanFoto.length && !loadedAny) {
+            fotoWrap.innerHTML = '<div class="no-photo">Foto belum tersedia</div>';
+          }
+        };
+        testImg.src = src;
+      });
+    })
+    .catch(err => {
+      app.innerHTML = '<div class="error-box"><p>Gagal memuat data koleksi.</p></div>';
+      console.error(err);
+    });
+}
+</script>
+
+</body>
+</html>
