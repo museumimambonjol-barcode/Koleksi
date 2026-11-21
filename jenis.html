@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Museum Tuanku Imam Bonjol</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500;600;700&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --glasir: #2a211c;
+    --glasir-2: #43352d;
+    --porselen: #f3f1ec;
+    --porselen-2: #e6e2d9;
+    --seladon: #5e8c7e;
+    --seladon-deep: #2f5a4e;
+    --seladon-tint: #dce8e2;
+    --karat: #9a5b3a;
+    --teks: #261f1a;
+    --teks-pudar: #6a5f56;
+    --serif: 'Noto Serif', Georgia, 'Times New Roman', serif;
+    --sans: 'Noto Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--porselen);
+    color: var(--teks);
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--seladon); outline-offset: 3px; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
+
+  /* ---------- hero ---------- */
+  .hero { background: var(--glasir); color: var(--porselen); padding-bottom: 36px; }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding-top: 14px; padding-bottom: 14px;
+  }
+  .museum { font-size: 0.85rem; color: #cfc6b8; letter-spacing: 0.01em; }
+  .lang { display: inline-flex; border: 1px solid #6d5d50; border-radius: 999px; overflow: hidden; }
+  .lang button {
+    font: 600 0.85rem var(--sans); color: #cfc6b8; background: transparent;
+    border: 0; padding: 10px 16px; min-height: 44px; cursor: pointer;
+  }
+  .lang button[aria-pressed="true"] { background: var(--seladon); color: #10241e; }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    grid-template-areas: "title photo" "intro intro";
+    column-gap: 22px; row-gap: 22px;
+    align-items: end;
+    padding-top: 14px;
+  }
+  .hero-title { grid-area: title; min-width: 0; }
+  .alt { margin: 0 0 6px; font-size: 0.9rem; color: #a9c9be; }
+  h1 {
+    margin: 0 0 18px;
+    font-family: var(--serif); font-weight: 700;
+    font-size: clamp(1.9rem, 8.4vw, 3.6rem); line-height: 1.05; letter-spacing: -0.01em;
+    overflow-wrap: normal;
+  }
+  .facts { margin: 0; display: grid; gap: 8px; font-size: 0.95rem; }
+  .facts div { border-top: 1px solid #5a4a3e; padding-top: 6px; }
+  .facts dt { font-size: 0.8rem; color: #b3a898; }
+  .facts dd { margin: 0; font-weight: 600; }
+
+  .arch { grid-area: photo; position: relative; width: 150px; height: 214px; justify-self: end; }
+  .arch::before {
+    content: ""; position: absolute; inset: -8px 8px 8px -8px;
+    border: 2px solid var(--seladon); border-radius: 999px 999px 8px 8px;
+  }
+  .arch img {
+    position: relative; width: 100%; height: 100%; object-fit: cover; display: block;
+    border-radius: 999px 999px 8px 8px; background: var(--glasir-2);
+  }
+  .intro {
+    grid-area: intro; margin: 0; max-width: 56ch;
+    font-family: var(--serif); font-size: 1.12rem; line-height: 1.65; color: #ece7dd;
+  }
+
+  /* ---------- sections ---------- */
+  section { padding-top: 40px; padding-bottom: 40px; }
+  h2 {
+    margin: 0 0 16px;
+    font-family: var(--serif); font-weight: 600;
+    font-size: 1.45rem; line-height: 1.25;
+  }
+  .ciri { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  .ciri li {
+    border-left: 3px solid var(--seladon);
+    padding: 2px 0 2px 14px; max-width: 60ch;
+  }
+
+  .fungsi-band { background: var(--seladon-tint); }
+  .fungsi-band p {
+    margin: 0; max-width: 34ch;
+    font-family: var(--serif); font-size: 1.4rem; line-height: 1.5; color: var(--seladon-deep);
+  }
+
+  .ruang { padding: 0; }
+  .ruang figure { margin: 0; }
+  .ruang img { display: block; width: 100%; height: auto; max-height: 430px; object-fit: cover; }
+  .ruang figcaption {
+    max-width: 760px; margin: 0 auto; padding: 10px 20px 0;
+    font-size: 0.88rem; color: var(--teks-pudar);
+  }
+
+  .konteks p { margin: 0 0 14px; max-width: 60ch; }
+  .bonjol {
+    margin-top: 22px; padding: 16px 18px;
+    background: var(--porselen-2); border-radius: 4px; max-width: 60ch;
+  }
+  .bonjol p { margin: 0 0 8px; }
+  .bonjol small { color: var(--teks-pudar); font-size: 0.82rem; }
+
+  /* ---------- siluet ---------- */
+  .bentuk { background: var(--glasir); color: var(--porselen); }
+  .bentuk h2 { color: var(--porselen); }
+  .bentuk .sub { margin: 0 0 22px; color: #cfc6b8; font-size: 0.95rem; max-width: 52ch; }
+  .rak { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; align-items: end; }
+  .rak a {
+    display: block; text-decoration: none; text-align: center;
+    padding: 8px 4px 12px; border-bottom: 3px solid #5a4a3e; color: #bfb4a4;
+  }
+  .rak a svg { width: 100%; max-width: 110px; height: auto; display: block; margin: 0 auto 8px; fill: currentColor; }
+  .rak a span { display: block; font-weight: 600; font-size: 0.95rem; }
+  .rak a small { display: block; font-size: 0.8rem; color: #a49989; }
+  .rak a[aria-current="page"] { color: #8fbfae; border-bottom-color: var(--seladon); }
+  .rak a[aria-current="page"] small { color: #a9c9be; }
+  .rak a:hover { color: var(--porselen); }
+
+  .tips {
+    margin: 26px 0 0; padding: 14px 16px; max-width: 56ch;
+    background: var(--glasir-2); border-left: 4px solid var(--seladon);
+    font-family: var(--serif); line-height: 1.55;
+  }
+  .tips b { display: block; margin-bottom: 4px; font-family: var(--sans); font-size: 0.85rem; font-weight: 600; color: #a9c9be; }
+
+  .sekilas h2 { margin-bottom: 20px; }
+  .attr { margin: 0 0 22px; max-width: 60ch; }
+  .attr h3 { margin: 0 0 8px; font-family: var(--serif); font-size: 1.05rem; color: var(--seladon-deep); }
+  .attr p { margin: 0; padding: 6px 0; border-top: 1px solid var(--porselen-2); display: grid; grid-template-columns: 5.6rem 1fr; gap: 10px; }
+  .attr p b { font-weight: 600; color: var(--teks-pudar); }
+  .attr p.now { background: var(--seladon-tint); margin-left: -8px; margin-right: -8px; padding-left: 8px; padding-right: 8px; border-top-color: transparent; }
+  .attr p.now b { color: var(--seladon-deep); }
+
+  footer { background: var(--porselen-2); padding-top: 26px; padding-bottom: 36px; font-size: 0.88rem; color: var(--teks-pudar); }
+  footer p { margin: 0 0 8px; max-width: 60ch; }
+
+  .state { padding: 70px 20px; text-align: center; }
+
+  @media (min-width: 640px) {
+    .hero-grid { grid-template-columns: 1fr 250px; }
+    .arch { width: 250px; height: 356px; }
+    .intro { font-size: 1.2rem; }
+    .rak a svg { max-width: 140px; }
+    .fungsi-band p { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+<div id="app"><p class="state">...</p></div>
+
+<script>
+const UI = {
+  id: {
+    museum: 'Museum Tuanku Imam Bonjol',
+    jumlah: 'Jumlah koleksi', unit: 'buah', asal: 'Asal',
+    ciri: 'Ciri-ciri', fungsi: 'Fungsi',
+    ruang: 'Guci, kendi, dan tempayan Tiongkok di ruang pamer museum (14 koleksi).',
+    konteks: 'Konteks',
+    bentuk: 'Tiga wadah, tiga bentuk',
+    bentukSub: 'Ketuk salah satu bentuk untuk membuka jenis lainnya.',
+    tips: 'Cara cepat mengenali',
+    sekilas: 'Perbedaan sekilas',
+    attrs: { badan: 'Bentuk badan', leher: 'Leher', mulut: 'Mulut', fungsi: 'Fungsi utama' },
+    notFound: 'Jenis tidak ditemukan. Contoh alamat yang benar: jenis.html?jenis=guci',
+    loadFail: 'Data gagal dimuat. Periksa koneksi lalu muat ulang halaman.',
+    kecil: 'koleksi'
+  },
+  en: {
+    museum: 'Tuanku Imam Bonjol Museum',
+    jumlah: 'Items in collection', unit: 'pieces', asal: 'Origin',
+    ciri: 'Characteristics', fungsi: 'Function',
+    ruang: 'Chinese jars, kendi, and tempayan on display in the museum (14 items).',
+    konteks: 'Context',
+    bentuk: 'Three vessels, three shapes',
+    bentukSub: 'Tap a shape to open the other vessel types.',
+    tips: 'How to tell it apart',
+    sekilas: 'Differences at a glance',
+    attrs: { badan: 'Body shape', leher: 'Neck', mulut: 'Mouth', fungsi: 'Main use' },
+    notFound: 'Vessel type not found. Example of a valid address: jenis.html?jenis=guci',
+    loadFail: 'The data could not be loaded. Check your connection and reload the page.',
+    kecil: 'items'
+  }
+};
+
+const ORDER = ['guci', 'kendi', 'tempayan'];
+
+const SIL = {
+  guci: 'M36 16H64L60 24Q60 30 70 36Q90 50 88 74Q86 100 68 108H32Q14 100 12 74Q10 50 30 36Q40 30 40 24Z',
+  kendi: 'M43 6H57L55 14L54 40Q86 48 86 76Q86 102 66 108H34Q14 102 14 76Q14 48 46 40L45 14Z',
+  tempayan: 'M12 26H88Q90 32 84 36Q92 62 86 86Q82 104 68 108H32Q18 104 14 86Q8 62 16 36Q10 32 12 26Z'
+};
+
+const BEDA = {
+  badan: {
+    guci:     { id: 'Bulat, lonjong, atau menggembung', en: 'Round, oval, or bulging' },
+    kendi:    { id: 'Bulat atau membuncit', en: 'Round or rounded out' },
+    tempayan: { id: 'Bulat dan melebar', en: 'Round and broad' }
+  },
+  leher: {
+    guci:     { id: 'Pendek, atau hampir tidak ada', en: 'Short, or almost none' },
+    kendi:    { id: 'Ada, lebih tinggi dari tempayan', en: 'Present, taller than a tempayan' },
+    tempayan: { id: 'Pendek', en: 'Short' }
+  },
+  mulut: {
+    guci:     { id: 'Di bagian atas, dapat bertutup', en: 'At the top, may take a lid' },
+    kendi:    { id: 'Untuk mengisi air', en: 'For filling with water' },
+    tempayan: { id: 'Lebar', en: 'Wide' }
+  },
+  fungsi: {
+    guci:     { id: 'Menyimpan air, makanan, biji-bijian, minyak', en: 'Storing water, food, grain, oil' },
+    kendi:    { id: 'Air minum, menuangkan cairan, ritual', en: 'Drinking water, pouring, ritual' },
+    tempayan: { id: 'Penyimpanan yang mudah dijangkau', en: 'Storage that is easy to reach' }
+  }
+};
+
+const qs = new URLSearchParams(location.search);
+const jenis = (qs.get('jenis') || '').toLowerCase();
+let lang = qs.get('lang');
+if (lang !== 'id' && lang !== 'en') {
+  try { lang = localStorage.getItem('lang-tib'); } catch (e) { lang = null; }
+}
+if (lang !== 'id' && lang !== 'en') lang = 'id';
+
+const app = document.getElementById('app');
+let DATA = null;
+
+function esc(s) {
+  return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+}
+
+function setLang(l) {
+  lang = l;
+  try { localStorage.setItem('lang-tib', l); } catch (e) {}
+  const u = new URL(location.href);
+  u.searchParams.set('lang', l);
+  history.replaceState(null, '', u);
+  render();
+}
+
+function linkFor(slug) {
+  return 'jenis.html?jenis=' + slug + '&lang=' + lang;
+}
+
+function render() {
+  const t = UI[lang];
+  const d = DATA[jenis];
+  const u = DATA.umum;
+  document.documentElement.lang = lang;
+  document.title = d.nama[lang] + ' - ' + t.museum;
+
+  const ciri = d.ciri[lang].map(x => '<li>' + esc(x) + '</li>').join('');
+
+  const rak = ORDER.map(slug => {
+    const cur = slug === jenis ? ' aria-current="page"' : '';
+    return '<a href="' + linkFor(slug) + '"' + cur + '>' +
+      '<svg viewBox="0 0 100 114" aria-hidden="true"><path d="' + SIL[slug] + '"/></svg>' +
+      '<span>' + esc(DATA[slug].nama[lang]) + '</span>' +
+      '<small>' + DATA[slug].jumlah + ' ' + t.kecil + '</small></a>';
+  }).join('');
+
+  const attrs = Object.keys(BEDA).map(k => {
+    const rows = ORDER.map(slug =>
+      '<p class="' + (slug === jenis ? 'now' : '') + '"><b>' + esc(DATA[slug].nama[lang]) + '</b><span>' +
+      esc(BEDA[k][slug][lang]) + '</span></p>').join('');
+    return '<div class="attr"><h3>' + esc(t.attrs[k]) + '</h3>' + rows + '</div>';
+  }).join('');
+
+  const catatan = u.catatan_data[lang].replace('{n}', d.jumlah);
+
+  app.innerHTML =
+    '<header class="hero"><div class="wrap">' +
+      '<div class="topbar"><span class="museum">' + esc(t.museum) + '</span>' +
+        '<div class="lang" role="group" aria-label="Bahasa / Language">' +
+          '<button type="button" data-l="id" aria-pressed="' + (lang === 'id') + '">ID</button>' +
+          '<button type="button" data-l="en" aria-pressed="' + (lang === 'en') + '">EN</button>' +
+        '</div></div>' +
+      '<div class="hero-grid">' +
+        '<div class="hero-title"><p class="alt">' + esc(d.nama_alt[lang]) + '</p>' +
+          '<h1>' + esc(d.nama[lang]) + '</h1>' +
+          '<dl class="facts">' +
+            '<div><dt>' + esc(t.jumlah) + '</dt><dd>' + d.jumlah + ' ' + esc(t.unit) + '</dd></div>' +
+            '<div><dt>' + esc(t.asal) + '</dt><dd>' + esc(d.asal[lang]) + '</dd></div>' +
+          '</dl></div>' +
+        '<div class="arch"><img src="' + esc(d.foto) + '" alt="' + esc(d.nama[lang]) + '"></div>' +
+        '<p class="intro">' + esc(d.intro[lang]) + '</p>' +
+      '</div></div></header>' +
+
+    '<section><div class="wrap"><h2>' + esc(t.ciri) + '</h2><ul class="ciri">' + ciri + '</ul></div></section>' +
+
+    '<section class="fungsi-band"><div class="wrap"><h2>' + esc(t.fungsi) + '</h2><p>' + esc(d.fungsi[lang]) + '</p></div></section>' +
+
+    '<section class="ruang"><figure><img src="foto/jenis/vitrin-tiongkok.jpg" alt="">' +
+      '<figcaption>' + esc(t.ruang) + '</figcaption></figure></section>' +
+
+    '<section class="konteks"><div class="wrap"><h2>' + esc(t.konteks) + '</h2>' +
+      '<p>' + esc(d.konteks[lang]) + '</p>' +
+      '<div class="bonjol"><p>' + esc(u.bonjol[lang]) + '</p><small>' + esc(u.bonjol_sumber[lang]) + '</small></div>' +
+    '</div></section>' +
+
+    '<section class="bentuk"><div class="wrap"><h2>' + esc(t.bentuk) + '</h2>' +
+      '<p class="sub">' + esc(t.bentukSub) + '</p>' +
+      '<nav class="rak" aria-label="' + esc(t.bentuk) + '">' + rak + '</nav>' +
+      '<div class="tips"><b>' + esc(t.tips) + '</b>' + esc(d.tips[lang]) + '</div>' +
+    '</div></section>' +
+
+    '<section class="sekilas"><div class="wrap"><h2>' + esc(t.sekilas) + '</h2>' + attrs + '</div></section>' +
+
+    '<footer><div class="wrap"><p>' + esc(catatan) + '</p><p>' + esc(t.museum) + '</p></div></footer>';
+
+  app.querySelectorAll('.lang button').forEach(b =>
+    b.addEventListener('click', () => setLang(b.dataset.l)));
+  app.querySelectorAll('.arch img').forEach(im =>
+    im.addEventListener('error', () => { im.style.visibility = 'hidden'; }));
+}
+
+fetch('data/data_jenis.json')
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(data => {
+    DATA = data;
+    if (!ORDER.includes(jenis)) {
+      app.innerHTML = '<p class="state">' + esc(UI[lang].notFound) + '</p>';
+      return;
+    }
+    render();
+  })
+  .catch(() => { app.innerHTML = '<p class="state">' + esc(UI[lang].loadFail) + '</p>'; });
+</script>
+</body>
+</html>

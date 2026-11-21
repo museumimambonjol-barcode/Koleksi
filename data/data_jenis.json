@@ -1,0 +1,132 @@
+{
+  "guci": {
+    "slug": "guci",
+    "foto": "foto/jenis/guci.jpg",
+    "jumlah": 6,
+    "asal": { "id": "Tiongkok (Cina)", "en": "China" },
+    "nama": { "id": "Guci", "en": "Jar" },
+    "nama_alt": { "id": "Guci keramik Tiongkok", "en": "Chinese ceramic storage jar (guci)" },
+    "intro": {
+      "id": "Wadah keramik berbadan bulat yang lazim dipakai untuk menyimpan. Salah satu produk keramik penyimpanan Tiongkok yang diperdagangkan secara luas.",
+      "en": "A round-bodied ceramic vessel made for storage. It was one of the Chinese storage ceramics traded most widely."
+    },
+    "ciri": {
+      "id": [
+        "Badan berbentuk bulat, lonjong, atau menggembung.",
+        "Memiliki mulut di bagian atas.",
+        "Umumnya tidak memiliki cerat atau cucuk di bagian samping.",
+        "Ada yang berleher pendek, ada yang hampir tidak berleher.",
+        "Dapat dilengkapi tutup."
+      ],
+      "en": [
+        "The body is round, oval, or bulging.",
+        "It has an opening at the top.",
+        "It usually has no spout on the side.",
+        "Some have a short neck; others have almost none.",
+        "It may come with a lid."
+      ]
+    },
+    "fungsi": {
+      "id": "Tempat menyimpan air, bahan makanan, biji-bijian, minyak, atau benda-benda lainnya.",
+      "en": "Used to store water, food, grain, oil, and other goods."
+    },
+    "konteks": {
+      "id": "Guci Cina dikenal sebagai salah satu produk keramik penyimpanan yang diperdagangkan secara luas.",
+      "en": "Chinese jars were among the storage ceramics that circulated most widely in trade."
+    },
+    "tips": {
+      "id": "Badan menggembung, leher pendek atau nyaris tidak ada, kadang bertutup: kemungkinan besar guci.",
+      "en": "A bulging body, a short neck or none at all, sometimes with a lid: most likely a guci."
+    }
+  },
+  "kendi": {
+    "slug": "kendi",
+    "foto": "foto/jenis/kendi.jpg",
+    "jumlah": 6,
+    "asal": { "id": "Tiongkok (Cina)", "en": "China" },
+    "nama": { "id": "Kendi", "en": "Kendi" },
+    "nama_alt": { "id": "Kendi keramik Tiongkok", "en": "Chinese ceramic water vessel (kendi)" },
+    "intro": {
+      "id": "Wadah keramik untuk air, dengan leher di bagian atas sebagai tempat mengisi dan menuangkan cairan.",
+      "en": "A ceramic vessel for water, with a neck at the top for filling and pouring."
+    },
+    "ciri": {
+      "id": [
+        "Badan berbentuk bulat atau membuncit.",
+        "Memiliki leher atau mulut di bagian atas untuk mengisi air.",
+        "Umumnya tidak memiliki pegangan."
+      ],
+      "en": [
+        "The body is round or rounded out.",
+        "It has a neck or mouth at the top for filling with water.",
+        "It usually has no handle."
+      ]
+    },
+    "fungsi": {
+      "id": "Wadah air minum, tempat menyimpan dan menuangkan cairan, serta dalam konteks tertentu digunakan untuk keperluan ritual.",
+      "en": "A drinking-water vessel for storing and pouring liquids, and in some settings used in rituals."
+    },
+    "konteks": {
+      "id": "Kendi keramik Cina banyak diproduksi pada masa Dinasti Ming dan diekspor ke Asia Tenggara, termasuk Nusantara.",
+      "en": "Chinese ceramic kendi were produced in large numbers during the Ming Dynasty and exported to Southeast Asia, including the Indonesian archipelago."
+    },
+    "tips": {
+      "id": "Ada leher yang menonjol untuk mengisi air dan tidak ada pegangan: kemungkinan besar kendi.",
+      "en": "A distinct neck for filling with water and no handle: most likely a kendi."
+    }
+  },
+  "tempayan": {
+    "slug": "tempayan",
+    "foto": "foto/jenis/tempayan.jpg",
+    "jumlah": 2,
+    "asal": { "id": "Tiongkok (Cina)", "en": "China" },
+    "nama": { "id": "Tempayan", "en": "Tempayan" },
+    "nama_alt": { "id": "Tempayan keramik Tiongkok", "en": "Chinese ceramic wide-mouthed vessel (tempayan)" },
+    "intro": {
+      "id": "Wadah penyimpanan bermulut lebar dengan badan melebar dan hiasan di permukaannya.",
+      "en": "A wide-mouthed storage vessel with a broad body and decoration on its surface."
+    },
+    "ciri": {
+      "id": [
+        "Mulut lebar, sehingga isi mudah dimasukkan dan diambil.",
+        "Badan membulat dan melebar, menyerupai wadah penyimpanan.",
+        "Leher pendek, tidak membentuk leher tinggi seperti kendi.",
+        "Tidak memiliki cerat atau cucuk di bagian samping.",
+        "Badan dihiasi ornamen dekoratif yang kemungkinan berupa motif ukiran atau relief."
+      ],
+      "en": [
+        "A wide mouth, so contents are easy to put in and take out.",
+        "A rounded, broad body, like a storage container.",
+        "A short neck, not a tall one like a kendi.",
+        "No spout on the side.",
+        "The body carries decoration, probably carved or relief motifs."
+      ]
+    },
+    "fungsi": {
+      "id": "Wadah penyimpanan yang isinya mudah dijangkau berkat mulutnya yang lebar.",
+      "en": "A storage vessel whose wide mouth keeps the contents within easy reach."
+    },
+    "konteks": {
+      "id": "Tempayan berbeda dari kendi dan guci terutama pada mulutnya yang lebar, lehernya yang pendek, dan hiasan pada badannya.",
+      "en": "A tempayan differs from a kendi and a guci mainly in its wide mouth, short neck, and decorated body."
+    },
+    "tips": {
+      "id": "Mulut lebar, leher pendek, badan melebar dengan hiasan: kemungkinan besar tempayan.",
+      "en": "A wide mouth, a short neck, and a broad decorated body: most likely a tempayan."
+    }
+  },
+  "umum": {
+    "bonjol": {
+      "id": "Keramik Tiongkok tiba di Pasaman lewat jaringan perdagangan maritim Selat Malaka, ditukar dengan emas, lada, dan damar. Sebagian kemudian menjadi harta pusako yang disimpan di Rumah Gadang dan diwariskan lintas generasi.",
+      "en": "Chinese ceramics reached Pasaman through the maritime trade networks of the Strait of Malacca, exchanged for gold, pepper, and damar resin. Some later became harta pusako, heirlooms kept in the Rumah Gadang and passed down through generations."
+    },
+    "bonjol_sumber": {
+      "id": "Dirangkum dari panel Vitrin 3, Warisan Budaya Negeri Tirai Bambu.",
+      "en": "Summarised from the Vitrin 3 panel, Warisan Budaya Negeri Tirai Bambu."
+    },
+    "catatan_data": {
+      "id": "Foto dan deskripsi di halaman ini mewakili satu contoh dari {n} koleksi. Data pengukuran tiap benda akan dilengkapi kemudian.",
+      "en": "The photo and description on this page represent one example from {n} items in the collection. Measurements for each object will be added later."
+    }
+  }
+}
